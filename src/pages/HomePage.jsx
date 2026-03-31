@@ -13,10 +13,10 @@ const FEATURES = [
 const BREEDS_PREVIEW = ['Gir', 'Sahiwal', 'Ongole', 'Red Sindhi', 'Tharparkar', 'Kankrej', 'Hallikar', 'Amrit Mahal']
 
 const STATS = [
-  { value: '50+', label: 'Cattle Breeds' },
-  { value: '94.2%', label: 'Accuracy' },
-  { value: '12K+', label: 'Training Images' },
-  { value: '<2s', label: 'Inference Time' },
+  { value: '50',    label: 'Cattle Breeds' },
+  { value: '80%',   label: 'Model Accuracy' },
+  { value: '8.5K+', label: 'Training Images' },
+  { value: '<2s',   label: 'Inference Time' },
 ]
 
 export default function HomePage() {
@@ -48,7 +48,7 @@ export default function HomePage() {
 
           <div className="hero-actions animate-fadeInUp delay-3">
             <Link to="/upload" className="btn btn-primary hero-btn-primary" id="hero-classify-btn">
-              🐄 Classify Cattle Now
+              Classify Cattle Now
             </Link>
             <Link to="/breeds" className="btn btn-secondary" id="hero-breeds-btn">
               Explore Breeds →
@@ -75,7 +75,7 @@ export default function HomePage() {
             {BREEDS_PREVIEW.map(b => (
               <span key={b} className="badge badge-primary">{b}</span>
             ))}
-            <span className="badge badge-info">+42 more</span>
+            <span className="badge badge-info">+42 more breeds</span>
           </div>
         </div>
       </section>
