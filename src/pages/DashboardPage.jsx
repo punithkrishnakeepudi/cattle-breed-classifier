@@ -177,7 +177,7 @@ export default function DashboardPage() {
                 <span className="model-name">YOLOv8-m</span>
               </div>
               <dl className="info-list" style={{ marginTop: '0.75rem' }}>
-                <div className="info-pair"><dt>Training Images</dt><dd>13,000+</dd></div>
+                <div className="info-pair"><dt>Training Images</dt><dd>8.5K+</dd></div>
                 <div className="info-pair"><dt>Classes</dt><dd>50 Cattle Breeds</dd></div>
                 <div className="info-pair"><dt>Framework</dt><dd>PyTorch 2.0</dd></div>
               </dl>
