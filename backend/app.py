@@ -168,9 +168,14 @@ def predict():
         det_filename = f"det_{filename}"
         det_path = os.path.join(app.config['RESULT_FOLDER'], det_filename)
         
-        # Save detection result — disable labels/conf text drawn on image
-        res_plot = results[0].plot(labels=False, conf=False)
-        cv2.imwrite(det_path, res_plot)
+        # Draw detection boxes manually using OpenCV — NO labels or text at all
+        raw_img = cv2.imread(filepath)
+        det_img = raw_img.copy()
+        if results[0].boxes is not None and len(results[0].boxes) > 0:
+            for box in results[0].boxes:
+                x1, y1, x2, y2 = box.xyxy[0].cpu().numpy().astype(int)
+                cv2.rectangle(det_img, (x1, y1), (x2, y2), (0, 200, 100), 3)
+        cv2.imwrite(det_path, det_img)
 
         # Hybrid Logic: Try to crop detection
         crop_filename = f"crop_{filename}"
@@ -181,7 +186,6 @@ def predict():
         if results[0].boxes is not None and len(results[0].boxes) > 0:
             # We crop the first detection (highest confidence)
             box = results[0].boxes[0].xyxy[0].cpu().numpy().astype(int)
-            raw_img = cv2.imread(filepath)
             crop_img = raw_img[box[1]:box[3], box[0]:box[2]]
             if crop_img.size > 0:
                 cv2.imwrite(crop_path, crop_img)
