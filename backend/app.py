@@ -168,8 +168,8 @@ def predict():
         det_filename = f"det_{filename}"
         det_path = os.path.join(app.config['RESULT_FOLDER'], det_filename)
         
-        # Save detection result to results folder
-        res_plot = results[0].plot()
+        # Save detection result — disable labels/conf text drawn on image
+        res_plot = results[0].plot(labels=False, conf=False)
         cv2.imwrite(det_path, res_plot)
 
         # Hybrid Logic: Try to crop detection

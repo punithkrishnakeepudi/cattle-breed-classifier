@@ -67,7 +67,7 @@ export default function ResultPage() {
               <div className="detection-img-wrapper">
                 <img src={`${BASE_URL}${result.detected_image}`} alt="Detection" className="detection-img" />
                 <div className="yolo-badge">
-                  {result.animal_detected ? 'Cattle detected' : 'No detection (Full img used)'}
+                  {result.animal_detected ? '🐄 Cattle Detected' : '🖼️ Direct Classification'}
                 </div>
               </div>
             </div>
