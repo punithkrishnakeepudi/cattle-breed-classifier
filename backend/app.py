@@ -16,7 +16,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PARENT_DIR = os.path.dirname(BASE_DIR)
 UPLOAD_FOLDER = os.path.join(PARENT_DIR, 'static', 'uploads')
 RESULT_FOLDER = os.path.join(PARENT_DIR, 'static', 'results')
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
 
 MODEL_PATH_CNN = os.path.join(PARENT_DIR, 'models', 'finetuned_v2.pth')
 MODEL_PATH_YOLO = os.path.join(PARENT_DIR, 'models', 'best.pt')
@@ -149,7 +149,9 @@ def health():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    print(f"DEBUG: Files received: {request.files}")
     if 'image' not in request.files:
+        print("DEBUG: Error - 'image' key missing in request.files")
         return jsonify({'error': 'No image found'}), 400
     
     file = request.files['image']
