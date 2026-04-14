@@ -2,3 +2,11 @@
 
 ## Abstract
 The ability to accurately identify animal breeds from images has applications in livestock management, biodiversity conservation, and agricultural policy. We present an end‑to‑end deep learning system that classifies **50 Indian cattle breeds** from a single photograph. The system combines a YOLOv8 object detector, a ResNet‑50 backbone fine‑tuned on 8,500+ breed‑specific images, and a Grad‑CAM heatmap module for local explainability. Trained with transfer learning, progressive unfreezing, class‑weighted sampling, mix‑up augmentation, and label‑smoothing, the model achieves **80 % overall accuracy** on a held‑out test set of 1,715 images, with macro‑F1 of 0.79. The architecture is packaged in a Flask REST API and consumed by a React + Vite single‑page application, providing a human‑friendly interface with live feedback and an interactive history log.
+
+## 1. Introduction
+India hosts a rich diversity of locally adapted cattle breeds, many of which are underrepresented in global datasets. Accurate breed identification is vital for:
+- **Genetic conservation** – tracking lineage and maintaining diverse gene pools.
+- **Agronomic decision‑making** – selecting breeds for milk, draught, or meat production.
+- **Veterinary diagnostics** – recognising breed‑specific ailments.
+
+Existing efforts rely on manual inspection or commercial proprietary solutions that lack transparency. This work demonstrates how modern computer‑vision techniques can deliver an open, reproducible, and interpretable solution for Indian cattle breeding communities.
