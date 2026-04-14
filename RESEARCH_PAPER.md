@@ -1,0 +1,4 @@
+# Cattle Breed Classifier: Deep Learning for Indian Cattle Breed Identification and Explainability
+
+## Abstract
+The ability to accurately identify animal breeds from images has applications in livestock management, biodiversity conservation, and agricultural policy. We present an end‑to‑end deep learning system that classifies **50 Indian cattle breeds** from a single photograph. The system combines a YOLOv8 object detector, a ResNet‑50 backbone fine‑tuned on 8,500+ breed‑specific images, and a Grad‑CAM heatmap module for local explainability. Trained with transfer learning, progressive unfreezing, class‑weighted sampling, mix‑up augmentation, and label‑smoothing, the model achieves **80 % overall accuracy** on a held‑out test set of 1,715 images, with macro‑F1 of 0.79. The architecture is packaged in a Flask REST API and consumed by a React + Vite single‑page application, providing a human‑friendly interface with live feedback and an interactive history log.
