@@ -1,0 +1,9 @@
+torch
+torchvision
+Flask
+Flask-Cors
+Werkzeug
+Pillow
+numpy
+opencv-python-headless
+ultralytics
