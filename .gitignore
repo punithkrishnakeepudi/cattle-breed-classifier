@@ -24,8 +24,7 @@ dist-ssr
 *.sw?
 
 venv/
-data/cattle/
-data/kaggle_downloads/
+data/
 !src/data/
 models/
 __pycache__/
