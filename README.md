@@ -157,7 +157,7 @@ make logs
 # Stop the application
 make down
 ```
-*Frontend will be at http://localhost:3001 | Backend will be at http://localhost:5000*
+*Frontend will be at http://localhost:3001 | Backend will be at http://localhost:5001*
 
 ### Option 2: Local Development (Without Docker)
 If you don't have Docker installed, the `Makefile` still has you covered!
@@ -171,7 +171,7 @@ make run-backend-local
 # Start the Frontend App (Terminal 2)
 make run-frontend-local
 ```
-*Frontend will be at http://localhost:5173 | Backend will be at http://localhost:5000*
+*Frontend will be at http://localhost:5173 | Backend will be at http://localhost:5001*
 
 ### Option 3: Hugging Face Spaces (No Installation)
 You can try out the live model directly on Hugging Face Spaces without installing anything!
@@ -187,7 +187,7 @@ Run `make` or `make help` to see a full list of available commands.
 ### POST `/predict`
 Classify cattle breed from an image.
 ```bash
-curl -X POST http://localhost:5000/predict -F "image=@path/to/image.jpg"
+curl -X POST http://localhost:5001/predict -F "image=@path/to/image.jpg"
 ```
 Returns a JSON object containing `breed`, `confidence`, `top_5_predictions`, `heatmap`, `processing_time_ms`, etc.
 
