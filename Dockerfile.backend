@@ -2,16 +2,20 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install system dependencies for OpenCV and other packages if needed
+# Install system dependencies for OpenCV and YOLOv8
 RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
+    libxcb1 \
     && rm -rf /var/lib/apt/lists/*
 
+
+# Install PyTorch CPU-only (much smaller ~200MB vs ~2GB for CUDA)
+# This is sufficient for inference — training happens outside Docker
+RUN pip install --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
 COPY backend/requirements.txt .
+# Install remaining packages (ultralytics, Flask, etc.) — torch already installed above
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy backend, models, and static directories

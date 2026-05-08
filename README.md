@@ -151,13 +151,17 @@ cd Cattle-Breed-Classifier-ml-
 make build
 make up
 
-# View Logs
+# View Logs (to verify startup)
 make logs
 
 # Stop the application
 make down
 ```
 *Frontend will be at http://localhost:3001 | Backend will be at http://localhost:5001*
+
+> [!NOTE]
+> The Docker deployment has been recently updated to include all necessary system libraries (`libgl1`, `libglib2.0-0`, etc.) for OpenCV and YOLOv8 to run seamlessly on lean Linux distributions.
+
 
 ### Option 2: Local Development (Without Docker)
 If you don't have Docker installed, the `Makefile` still has you covered!

@@ -1,0 +1,25 @@
+
+# Large data directories - never needed in any container
+data/
+venv/
+.git/
+__pycache__/
+
+# Frontend deps - installed fresh inside container
+node_modules/
+
+# Misc
+.claude/
+*.log
+*.pyc
+*.pyd
+.env
+.DS_Store
+reports/
+research/
+docs/
+*.pdf
+test_img.jpg
+backend.log
+frontend.log
+backend_2.log
